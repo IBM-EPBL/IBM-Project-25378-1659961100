@@ -1,0 +1,105 @@
+{% extends 'index.html' %}
+{% block body %}
+    <div class="right" style="width: 100vw; text-align: left; margin: 5px; overflow:auto">
+        <div class="row mb-3" >
+            <div class="col-4" style="position: absolute; width: 40%; top:10%; padding-left: 15px; padding-top: 5%">
+                <h2 class="text-responsive-h" style="margin-top: 10px">
+                    Enter your details and get probability of your admission
+                </h2>
+                <p class="text-responsive" style="padding: 20px 0 20px 0;">
+                    Students are often worried about their chances of admission to University. The aim of this project is to help students in shortlisting universities with their profiles. The predicted output gives them a fair idea about their admission chances in a particular university. This analysis should also help students who are currently preparing or will be preparing to get a better idea.
+                </p>
+                <div class="d-flex justify-content-right">
+                    <img src="../static/Image/masters-hood.jpg" class="card-img-top" alt="..." style="height: 40%; width: 100%"/>
+                </div>
+                </div>
+    
+            <div class="col-8" style="position: absolute;width: 50%; right: 0; top: 10%; padding: 5% 0 0 0; font-size: 150%; font-weight: bolder;">
+                <div class="card p-2 ms-2 my-2"> 
+                    <div class="card-body">
+                        <h5 class="text-responsive" style="padding-left: 10px; font-size: calc(140% + 0.6vw + 0.6vh)">
+                            Enter the details
+                        </h5>
+                        <form action="/" method="post" id="theForm">
+                            <div class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <label style="padding-bottom: 5px; " for="gre" class="col-lg-2 col-form-label">GRE Score:</label>
+                                <div class="col-lg-10">    
+                                    <input type="number" style="width: 80%; height: 30%; padding: 5px; border-radius: 5px;" class="form-control" id="gre" name="gre" min="250" max="340" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <label for="tofel" class="col-lg-2 col-form-label">TOFEL Score:</label>
+                                <div class="col-lg-10">    
+                                    <input type="number" style="width: 80%; height: 30%; padding: 5px; border-radius: 5px;" class="form-control" id="tofel" name="tofel" min="50" max="120" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <label for="university_rating" class="col-lg-2 col-form-label">University Rating:</label>
+                                <div class="col-lg-10">    
+                                    <input type="number"  style="width: 80%; height: 30%; padding: 5px; border-radius: 5px;"class="form-control" id="university_rating" step="0.01" name="university_rating" min="1" max="5" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <label for="sop" class="col-lg-2 col-form-label">SOP:</label>
+                                <div class="col-lg-10">    
+                                    <input type="number" style="width: 80%; height: 30%;padding: 5px;  border-radius: 5px;" class="form-control" id="sop" name="sop" step="0.01" min="1" max="5" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <label for="lor" class="col-lg-2 col-form-label">LOR:</label>
+                                <div class="col-lg-10">    
+                                    <input type="number"  style="width: 80%; height: 30%;padding: 5px;  border-radius: 5px;" class="form-control" id="lor" name="lor" step="0.01" min="1" max="5" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <label for="cgpa" class="col-lg-2 col-form-label">CGPA:</label>
+                                <div class="col-lg-10">    
+                                    <input type="number"  style="width: 80%; height: 30%; padding: 5px; border-radius: 5px;" class="form-control" id="cgpa" name="cgpa" step="0.01" min="5" max="10" required>
+                                </div>
+                            </div>
+                            <fieldset class="row mb-3" style=" margin: 20px; margin-left: 0">
+                                <legend class="col-form-label col-sm-2 pt-0">Research:</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check" style="padding: 10px 10px 10px 10px">
+                                        <input class="form-check-input" type="radio" name="yes_no_radio" id="gridRadios1" value="1">
+                                        <label class="form-check-label" for="yes_no_radio">
+                                        Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="padding: 10px 10px 10px 10px">
+                                        <input class="form-check-input" type="radio" name="yes_no_radio" id="gridRadios2" value="0" checked>
+                                        <label class="form-check-label" for="yes_no_radio">
+                                        No
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row lg-3">
+                                <div class="col-lg-2 mb-2 me-3">
+                                    <button type="submit" class="btn btn-primary" id="button"style="    position: absolute;
+                                    border: none;
+                                    border-radius: 10px;
+                                    font-size: 1.3rem;
+                                    height: 8%;
+                                    width: 15%;"
+                                    onmouseover='this.style.color="white", this.style.background="#0f0b0b"'
+                                    onmouseout='this.style.background="white", this.style.color="black"'
+                                    onmouseout='this.style.color="black"'
+                                    
+                                    >Predict</button>
+                                </div>
+                                <div class="col-lg-2" id="spinner">
+                                    <div class="spinner-border text-primary m-1" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+
+                                    </div>
+                                </div>
+                        </form>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
