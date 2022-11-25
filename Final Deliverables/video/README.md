@@ -1,7 +1,3 @@
-### Video size is large so I uploaded the Youtube link
+### Video size is large so I cannot upload it here
 
-<a href="./product/download.html" target="_top">Click here</a>
-
-
-
-
+<p>YouTube Link: </p><a href="https://youtu.be/VLT5GeIuj9k" target="_top">University Admit Eligibility Predictor</a>
